@@ -1,0 +1,392 @@
+/*--------------------------------------------
+// Image hover effects
+// Copyright (c) Paweł Galias
+// http://pawgalias.eu
+// MIT Licensed:
+// http://www.opensource.org/licenses/mit-license.php
+//--------------------------------------------
+// Pack of effects which plays when user hovers on object.
+//--------------------------------------------
+// There are two way to use
+// 1. Simpler
+// Import iheffets.css to your project and use like that <div class="effect transparency">...</div>
+// 2. Harder
+// Use .less files to manipulate styles of components or use only those use need
+//--------------------------------------------
+// See demo here: http://codepen.io/pgalias/full/JYMPGQ
+// See more in my portfolio: http://pawgalias.eu
+// See also http://pawgalias.eu/article/Image-hover-effects
+//--------------------------------------------
+// I used LESS mixins library - prefixer.less which you can get it there http://lessprefixer.com/
+*/
+/* image container */
+.effect {
+  border: 1px solid #000000;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.75);
+}
+/* zoom effect based on transform scale property */
+.zoom01 img {
+  transition: all 0.5s ease;
+}
+.zoom01 img:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+/* zoom effect based on changing image width*/
+.zoom02 img {
+  width: 200%;
+  height: auto;
+}
+.zoom02 img:hover {
+  width: 300%;
+}
+.shrink01 img {
+  -webkit-transform: 1.5;
+  -ms-transform: 1.5;
+  transform: 1.5;
+  transition: all 0.5s ease;
+}
+.shrink01 img:hover {
+  -webkit-transform: 1;
+  -ms-transform: 1;
+  transform: 1;
+}
+.shrink02 img {
+  width: 300%;
+  height: 0;
+  transition: all 0.5s ease;
+}
+.shrink02 img:hover {
+  width: 200%;
+}
+/* for better effect use image bigger than container */
+.slide-right img {
+  margin-left: 0;
+  transition: margin 0.7s cubic-bezier(0, 1.65, 1, -0.6);
+}
+.slide-right img:hover {
+  margin-left: 200px;
+}
+.slide-left img {
+  margin-left: 200px;
+  transition: margin 0.7s cubic-bezier(0, 1.65, 1, -0.6);
+}
+.slide-left img:hover {
+  margin-left: 0;
+}
+.slide-down img {
+  margin-top: 0;
+  transition: margin 0.7s cubic-bezier(0, 1.65, 1, -0.6);
+}
+.slide-down img:hover {
+  margin-top: 200px;
+}
+.slide-up img {
+  margin-top: 200px;
+  transition: margin 0.7s cubic-bezier(0, 1.65, 1, -0.6);
+}
+.slide-up img:hover {
+  margin-top: 0;
+}
+/* rotate based on transform rotate property */
+.rotate01 {
+  position: relative;
+}
+.rotate01 img {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+  transition: all 1s ease;
+}
+.rotate01 img:hover {
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+}
+/* rotate based on transform property + shrink */
+.rotate02 img {
+  -webkit-transform: rotate(30deg) scale(2);
+  -ms-transform: rotate(30deg) scale(2);
+  transform: rotate(30deg) scale(2);
+  transition: all 1s ease;
+}
+.rotate02 img:hover {
+  -webkit-transform: rotate(0) scale(1);
+  -ms-transform: rotate(0) scale(1);
+  transform: rotate(0) scale(1);
+}
+/* tilt effect - rotate whole container */
+.rotate03 {
+  transition: all 1s ease;
+}
+.rotate03:hover {
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+/* tilt effect + shrink */
+.rotate04 {
+  transition: all 1s ease;
+}
+.rotate04:hover {
+  -webkit-transform: rotate(720deg) scale(0.5);
+  -ms-transform: rotate(720deg) scale(0.5);
+  transform: rotate(720deg) scale(0.5);
+}
+.round {
+  transition: all 0.5s ease;
+}
+.round:hover {
+  border-radius: 50%;
+}
+.blur img {
+  transition: all 0.5s ease;
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+}
+.blur img:hover {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
+.black-white img {
+  transition: all 0.5s ease;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.black-white img:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.brightness img {
+  transition: all 0.5s ease;
+  -webkit-filter: brightness(3);
+  filter: brightness(3);
+}
+.brightness img:hover {
+  -webkit-filter: brightness(1);
+  filter: brightness(1);
+}
+.sepia img {
+  transition: all 0.5s ease;
+  -webkit-filter: sepia(100%);
+  filter: sepia(100%);
+}
+.sepia img:hover {
+  -webkit-filter: sepia(0);
+  filter: sepia(0);
+}
+.saturate img {
+  transition: all 0.5s ease;
+  -webkit-filter: saturate(10);
+  filter: saturate(10);
+}
+.saturate img:hover {
+  -webkit-filter: saturate(0);
+  filter: saturate(0);
+}
+.invert img {
+  transition: all 0.5s ease;
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+.invert img:hover {
+  -webkit-filter: invert(0);
+  filter: invert(0);
+}
+.blur-bw img {
+  transition: all 0.5s ease;
+  -webkit-filter: blur(3px) grayscale(100%);
+  filter: blur(3px) grayscale(100%);
+}
+.blur-bw img:hover {
+  -webkit-filter: blur(0) grayscale(0);
+  filter: blur(0) grayscale(0);
+}
+.transparency {
+  background: #54323f;
+}
+.transparency img {
+  transition: all 0.5s ease;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+.transparency img:hover {
+  filter: alpha(opacity=40);
+  opacity: 0.4;
+}
+@-webkit-keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.blink img:hover {
+  -webkit-animation: blink 0.5s;
+  animation: blink 0.5s;
+}
+@-webkit-keyframes jump {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes jump {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+.jump {
+  position: relative;
+}
+.jump:hover {
+  -webkit-animation: jump 0.5s;
+  animation: jump 0.5s;
+}
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+  90%,
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+  90%,
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.pulse:hover {
+  -webkit-animation: pulse 1s infinite;
+  animation: pulse 1s infinite;
+}
+@-webkit-keyframes wave {
+  100% {
+    right: 125%;
+  }
+}
+@keyframes wave {
+  100% {
+    right: 125%;
+  }
+}
+.wave {
+  position: relative;
+}
+.wave::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 175%;
+  z-index: 999;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  -webkit-transform: skew(25deg);
+  -ms-transform: skew(25deg);
+  transform: skew(25deg);
+}
+.wave:hover::after {
+  -webkit-animation: wave 0.75s;
+  animation: wave 0.75s;
+}
+@-webkit-keyframes round-wave {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
+@keyframes round-wave {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
+.round-wave {
+  position: relative;
+}
+.round-wave::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-clip: padding-box;
+  background: rgba(255, 255, 255, 0.3);
+}
+.round-wave:hover::after {
+  -webkit-animation: round-wave 0.75s;
+  animation: round-wave 0.75s;
+}

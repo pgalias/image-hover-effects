@@ -1,0 +1,20 @@
+.shrink01 {
+  img {
+    .transform(@shrinkInitial);
+    .transition(@shrinkTransition);
+    &:hover {
+      .transform(@shrinkHover);
+    }
+  }
+}
+
+.shrink02 {
+  img {
+    width: 300%;
+    height: 0;
+    .transition(@shrinkTransition);
+    &:hover {
+      width: 200%;
+    }
+  }
+}

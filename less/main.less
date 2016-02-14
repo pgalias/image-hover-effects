@@ -1,0 +1,14 @@
+//filter mixin
+.filter(@arg) {
+  -webkit-filter: @arg;
+  filter: @arg;
+}
+
+/* image container */
+.effect {
+  border: @containerBorder;
+  width: @containerWidth;
+  height: @containerHeight;
+  overflow: hidden;
+  .box-shadow(@containerShadow);
+}

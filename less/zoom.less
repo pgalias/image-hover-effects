@@ -1,0 +1,20 @@
+/* zoom effect based on transform scale property */
+.zoom01 {
+  img {
+    .transition(@zoomTransition);
+      &:hover {
+        .transform(scale(@zoomScale));
+      }
+  }
+}
+
+/* zoom effect based on changing image width*/
+.zoom02 {
+  img {
+    width: 200%;
+    height: auto;
+    &:hover {
+      width: 300%;
+    }
+  }
+}

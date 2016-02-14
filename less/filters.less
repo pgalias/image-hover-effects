@@ -1,0 +1,80 @@
+.blur {
+  img {
+    .transition(@filtersTransition);
+    .filter(blur(@filtersBlur));
+    &:hover {
+      .filter(blur(0));
+    }
+  }
+}
+
+.black-white {
+  img {
+    .transition(@filtersTransition);
+    .filter(grayscale(@filtersGrayscale));
+    &:hover {
+      .filter(grayscale(0));
+    }
+  }
+}
+
+.brightness {
+  img {
+    .transition(@filtersTransition);
+    .filter(brightness(@filtersBrightness));
+    &:hover {
+      .filter(brightness(1));
+    }
+  }
+}
+
+.sepia {
+  img {
+    .transition(@filtersTransition);
+    .filter(sepia(@filterSepia));
+    &:hover {
+      .filter(sepia(0));
+    }
+  }
+}
+
+.saturate {
+  img {
+    .transition(@filtersTransition);
+    .filter(~"saturate(@{filterSaturate})");
+    &:hover {
+      .filter(~"saturate(0)");
+    }
+  }
+}
+
+.invert {
+  img {
+    .transition(@filtersTransition);
+    .filter(invert(@filterInvert));
+    &:hover {
+      .filter(invert(0));
+    }
+  }
+}
+
+.blur-bw {
+  img {
+    .transition(@filtersTransition);
+    .filter(blur(@filtersBlur) grayscale(@filtersGrayscale));
+    &:hover {
+      .filter(blur(0) grayscale(0));
+    }
+  }
+}
+
+.transparency {
+  background: @filtersTransparencyBg;
+  img {
+    .transition(@filtersTransition);
+    .opacity(1);
+    &:hover {
+      .opacity(.4);
+    }
+  }
+}

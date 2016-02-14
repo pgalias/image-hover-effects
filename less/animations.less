@@ -1,0 +1,107 @@
+// 1. blink animation
+@-webkit-keyframes blink {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+@keyframes blink {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+.blink {
+  img {
+    &:hover {
+      .animation(blink @animationsBlink);
+    }
+  }
+}
+
+// 2. jump animation
+@-webkit-keyframes jump {
+  0%   {bottom: 0;}
+  50%  {bottom: 20px;}
+  100% {bottom: 0;}
+}
+@keyframes jump {
+  0%   {bottom: 0;}
+  50%  {bottom: 20px;}
+  100% {bottom: 0;}
+}
+.jump {
+  position: relative;
+  &:hover {
+    .animation(jump @animationsJump);
+  }
+}
+
+// 3. pulse animation
+@-webkit-keyframes pulse {
+  0%         {.transform(scale(1.1));}
+  50%        {.transform(scale(0.8));}
+  90%, 100%  {.transform(scale(1));}
+}
+@keyframes pulse {
+  0%         {.transform(scale(1.1));}
+  50%        {.transform(scale(0.8));}
+  90%, 100%  {.transform(scale(1));}
+}
+.pulse {
+  &:hover {
+    .animation(pulse @animationsPulse infinite);
+  }
+}
+
+// 4. wave animation
+@-webkit-keyframes wave {
+  100% {right: 125%}
+}
+@keyframes wave {
+  100% {right: 125%}
+}
+.wave {
+  position: relative;
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 175%;
+    z-index: 999;
+    background: @animationsWaveBackground;
+    .transform(skew(@animationsWaveBackgroundSkew));
+  }
+  &:hover::after {
+    .animation(wave @animationsWave);
+  }
+}
+
+// 5. round wave (growing circle from center of container)
+@-webkit-keyframes round-wave {
+  0%   {opacity:1;}
+  50%  {opacity:1;}
+  100% {opacity:0;width:200%;height:200%;}
+}
+@keyframes round-wave {
+  0%   {opacity:1;}
+  50%  {opacity:1;}
+  100% {opacity:0;width:200%;height:200%;}
+}
+.round-wave {
+  position: relative;
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    .transform(translate(-50%,-50%));
+    width: 0;
+    height: 0;
+    .border-radius(50%);
+    background: @animationsRoundWaveBackground;
+  }
+  &:hover::after {
+    .animation(round-wave @animationsWave);
+  }
+}

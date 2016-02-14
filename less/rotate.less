@@ -1,0 +1,41 @@
+/* rotate based on transform rotate property */
+.rotate01 {
+  position: relative;
+  img {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    .transform(@rotate01Deg);
+    .transition(@rotateTransition);
+    &:hover {
+      .transform(@rotate01DegHover);
+    }
+  }
+}
+
+/* rotate based on transform property + shrink */
+.rotate02 {
+  img {
+    .transform(@rotate02Deg);
+    .transition(@rotateTransition);
+    &:hover {
+      .transform(@rotate02DegHover);
+    }
+  }
+}
+
+/* tilt effect - rotate whole container */
+.rotate03 {
+  .transition(@rotateTransition);
+  &:hover {
+    .transform(@rotate03Deg);
+  }
+}
+
+/* tilt effect + shrink */
+.rotate04 {
+  .transition(@rotateTransition);
+  &:hover {
+    .transform(@rotate04Deg);
+  }
+}

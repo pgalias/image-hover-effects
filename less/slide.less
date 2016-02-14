@@ -1,0 +1,41 @@
+/* for better effect use image bigger than container */
+
+.slide-right {
+  img {
+    margin-left: 0;
+    .transition(@slideTransition);
+    &:hover {
+      margin-left: -1*@slideImageLeftMargin;
+    }
+  }
+}
+
+.slide-left {
+  img {
+    margin-left: -1*@slideImageLeftMargin;
+    .transition(@slideTransition);
+    &:hover {
+      margin-left: 0;
+    }
+  }
+}
+
+.slide-down {
+  img {
+    margin-top: 0;
+    .transition(@slideTransition);
+    &:hover {
+      margin-top: -1*@slideImageTopMargin;
+    }
+  }
+}
+
+.slide-up {
+  img {
+    margin-top: -1*@slideImageTopMargin;
+    .transition(@slideTransition);
+    &:hover {
+      margin-top: 0;
+    }
+  }
+}
